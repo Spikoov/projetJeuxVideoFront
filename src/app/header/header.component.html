@@ -1,0 +1,40 @@
+<nav class="sticky-top navbar navbar-expand-lg navbar-dark  bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">MyJeuxVideo</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <div class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home"><i class="bi bi-house"></i> Accueil</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/articles"><i class="bi bi-grid-fill"></i> Liste des articles</a>
+        </div>
+        <div class="nav-item" *ngIf="user">
+          <a class="nav-link" href="/command"><i class="bi bi-bag"></i> Commander</a>
+        </div>
+      </div>
+      <div class="navbar-nav ms-md-auto"> 
+        <div class="navbar-nav" *ngIf="!user">
+          <span class="nav-item">
+            <a class="btn btn-outline-info" href="/login"><i class="bi bi-person-fill"></i> Connexion</a>
+          </span>
+          <span class="nav-item">
+            <a class="btn btn-outline-warning mx-2" href="/signup"><i class="bi bi-person-plus-fill"></i> Inscription</a>
+          </span>
+        </div>        
+        <div class="dropdown" *ngIf="user">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i> 
+            {{user.nom}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+            <li><a class="dropdown-item" href="/profile"><i class="bi bi-file-earmark-person"></i> Mon profil</a></li>
+            <li><a class="dropdown-item" href="/commandHistory"><i class="bi bi-bag-check"></i> Mes commandes</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="/disconnect"><i class="bi bi-box-arrow-left"></i> Déconnexion</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
