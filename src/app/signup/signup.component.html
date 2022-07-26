@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+    <div class="mb-3 fs-1">Inscription</div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingUsername" placeholder="Pseudo" [(ngModel)]="user.username">
+      <label for="floatingUsername">Pseudo</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe" [(ngModel)]="user.password">
+      <label for="floatingPassword">Mot de passe</label>
+    </div>
+    <div class="input-group mb-3">
+      <div class="form-floating">
+        <input type="text" id="floatingName" class="form-control" placeholder="Nom" [(ngModel)]="user.nom">
+        <label for="floatingName">Nom</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" id="floatingFirstname" class="form-control" placeholder="Prénom" [(ngModel)]="user.prenom">
+        <label for="floatingFirstname">Prénom</label>
+      </div>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingAdress" placeholder="Adresse" [(ngModel)]="adress">
+      <label for="floatingAdress">Adresse</label>
+    </div>
+    <div class="input-group mb-3">
+      <div class="form-floating">
+        <input type="number" id="floatingCp" class="form-control" placeholder="Code postal" [(ngModel)]="zip">
+        <label for="floatingCp">Code postal</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" id="floatingCity" class="form-control" placeholder="Ville" [(ngModel)]="city">
+        <label for="floatingCity">Ville</label>
+      </div>
+    </div>
+    <div class="d-grid gap-2">
+      <button (click)="signup()" type="submit" class="btn btn-dark btn-lg">S'inscrire</button>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
