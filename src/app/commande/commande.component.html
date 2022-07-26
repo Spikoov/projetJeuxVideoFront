@@ -1,0 +1,54 @@
+<div>
+  <div class="mb-3 fs-2">Commander</div>
+  <div class="row mb-3">
+    <div class="col mb-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text" for="selectArticle">{{currentArticlePrice}} €</span>
+        <select (change)="updatePrice()" class="form-select" id="selectArticle" [(ngModel)]="currentArticleId">
+          <option *ngFor="let article of articles" [ngValue]="article.id">
+            {{article.nom}}
+          </option>
+        </select>
+      </div>
+      <div class="input-group">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="floatingQuantity" placeholder="Quantité" [(ngModel)]="currentQuantity" min="1" step="1">
+          <label for="floatingQuantity">Quantité</label>
+        </div>
+        <button (click)="add()" class="btn btn-dark" type="button">Ajouter</button>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="vr h-100 mx-auto"></div>
+    </div>
+    <div class="col">
+      <div *ngIf="order">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Article</th>
+              <th>Quantité</th>
+              <th>Prix</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let line of order.lines">
+              <td>{{line.article.nom}}</td>
+              <td>{{line.quantity}}</td>
+              <td>{{line.price}} €</td>
+              <td><button class="btn btn-danger rounded-circle p-0 delete-btn" (click)="removeFromCart(line.article.id)"><i class="bi bi-trash-fill"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-end">
+          <div class="col fs-5">Prix total: <span class="fw-bold">{{order.price}} €</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="mb-3 text-end" *ngIf="order">
+    <a class="btn btn-dark" href="/summary">Valider mon panier <i class="bi bi-caret-right-fill"></i></a>
+  </div>
+</div>

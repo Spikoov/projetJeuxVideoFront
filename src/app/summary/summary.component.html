@@ -1,0 +1,27 @@
+<div class="fs-2 mb-3">Récapitulatif de commande</div>
+<div class="row">
+  <div class="col"></div>
+  <table class="table mb-3 col">
+    <thead>
+      <tr>
+        <td colspan="3">
+          Commande de : <span class="fw-bold">{{user.username}}</span> - {{user.prenom}} {{user.nom}}
+          Montant total : <span class="fw-bold">{{order.price}} €</span>
+        </td>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let line of order.lines">
+        <td>{{line.article.nom}}</td>
+        <td>x{{line.quantity}}</td>
+        <td>{{line.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="col"></div>
+</div>
+<hr>
+<div class="mb-3">
+  <a class="btn btn-dark" href="/order"><i class="bi bi-caret-left-fill"></i> Retour</a>
+  <a class="btn btn-dark float-end" href="/validation">Commander <i class="bi bi-caret-right-fill"></i></a>
+</div>

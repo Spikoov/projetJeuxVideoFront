@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { SignupComponent } from './signup/signup.component';
+import { CommandeComponent } from './commande/commande.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SignupComponent } from './signup/signup.component';
     HomeComponent,
     ArticlesComponent,
     ConnectionComponent,
-    SignupComponent
+    SignupComponent,
+    CommandeComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
