@@ -17,6 +17,7 @@ import { ValidationComponent } from './validation/validation.component';
 import { ManageArticlesComponent } from './manage-articles/manage-articles.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import { AdministrationComponent } from './administration/administration.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UpdateArticleComponent } from './update-article/update-article.componen
     ValidationComponent,
     ManageArticlesComponent,
     NewArticleComponent,
-    UpdateArticleComponent
+    UpdateArticleComponent,
+    AdministrationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdministrationComponent } from './administration/administration.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { CommandeComponent } from './commande/commande.component';
 import { ConnectionComponent } from './connection/connection.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'manage/articles', component: ManageArticlesComponent},
   {path: 'manage/articles/new', component: NewArticleComponent},
   {path: 'manage/article/:id', component: UpdateArticleComponent},
+  {path: 'administration', component: AdministrationComponent}
 ];
 
 @NgModule({

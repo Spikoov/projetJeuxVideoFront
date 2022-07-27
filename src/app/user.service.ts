@@ -73,5 +73,49 @@ export class UserService {
             }
 
                 );
+
+
+                
+  }
+
+
+  findByid(user : User) : User {
+    
+    let url:string="http://localhost:8080/jeuxvideo/users/user/" + user.username;
+
+    this.http.get<User>(url).subscribe(
+      reponse=>{
+                    console.log(reponse)
+              },
+
+      err=>{
+              console.log("Utilisateur inconnu");
+            }
+
+                );  
+                
+      return user;
+  }
+
+  update(user : User)
+  {
+    const body = JSON.stringify(this.findByid(user));
+
+    console.log(user)
+
+    this.http.put("http://localhost:8080/jeuxvideo/users/", body,
+    {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    }).subscribe(response => {
+
+      this.findByid(user);
+
+    },
+
+      err => {
+
+      });
   }
 }
