@@ -31,7 +31,6 @@ export class AdministrationComponent implements OnInit {
           this.users = response
         })
       });
-      //console.log(u);
     }
     else
     {
@@ -41,18 +40,29 @@ export class AdministrationComponent implements OnInit {
           this.users = response
         })
       });
-      //console.log(u);
     }
   }
 
-  /*makeGod(u : User, isChecked : boolean)
+  makeDog(u : User)
   {
-    u.isAdmin = false;
+    if(u.isBanned == false || u.isBanned == null)
+    {
+      u.isBanned = true
+      this.srv.update(u, () => {
+        this.srv.findAll((response) => {
+          this.users = response
+        })
+      });
+    }
+    else
+    {
+      u.isBanned = false;
+      this.srv.update(u, () => {
+        this.srv.findAll((response) => {
+          this.users = response
+        })
+      });
+    }
   }
-
-  makeDog(u)
-  {
-    u.isBanned = false;
-  }*/
 
 }

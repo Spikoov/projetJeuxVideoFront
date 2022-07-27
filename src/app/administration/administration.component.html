@@ -12,26 +12,12 @@
             {{u.nom}}
         </td>
 
-        <td><button (click) = "makeGod(u)">God mode</button></td>
-        <td *ngIf="u.isAdmin; else notAdmin">God mode activé</td>
-        <ng-template #notAdmin>God mode désactivé</ng-template>
-        <!---
-        <td>
-        <label class="switch">
-            God mode
-            <input type="checkbox" [checked]="u.isAdmin" (change) = "makeGod(u)" >
-            <span class="slider round"></span>
-        </label>
-        </td>
+        <!--<td><button (click) = "makeGod(u)">God mode</button></td>-->
+        <td *ngIf="u.isAdmin; else notAdmin"><button (click) = "makeGod(u)">Désactiver le God Mode</button></td>
+        <ng-template #notAdmin><button (click) = "makeGod(u)">Activer le God Mode</button></ng-template>
 
-        <td>
-            <label class="switch">
-                Dog mode
-                <input type="checkbox" [checked]="u.isBanned" (click) = "makeDog(u)" >
-                <span class="slider round"></span>
-            </label>
-        </td>
-    -->
+        <td *ngIf="u.isBanned; else notBanned"><button (click) = "makeDog(u)">Pardonner l'utilisateur</button></td>
+        <ng-template #notBanned><button (click) = "makeDog(u)">Utiliser le Ban Hammer</button></ng-template>
 
     </tr>
 </table>
