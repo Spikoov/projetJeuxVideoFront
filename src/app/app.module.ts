@@ -14,6 +14,7 @@ import { SignupComponent } from './signup/signup.component';
 import { CommandeComponent } from './commande/commande.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ValidationComponent } from './validation/validation.component';
+import { AdministrationComponent } from './administration/administration.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ValidationComponent } from './validation/validation.component';
     SignupComponent,
     CommandeComponent,
     SummaryComponent,
-    ValidationComponent
+    ValidationComponent,
+    AdministrationComponent
   ],
   imports: [
     BrowserModule,
