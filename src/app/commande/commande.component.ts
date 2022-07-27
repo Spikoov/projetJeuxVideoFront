@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from '../article';
+import { ArticleServiceService } from '../article-service.service';
 import { Line, Order } from '../order';
+import { User } from '../user';
 
 @Component({
   selector: 'app-commande',
@@ -17,10 +20,21 @@ export class CommandeComponent implements OnInit {
 
   order: Order
 
-  constructor() { }
+  constructor(private srv: ArticleServiceService, private route: Router) { }
 
   ngOnInit(): void {
-    this.articles = JSON.parse(sessionStorage.getItem("articles"))
+    let user = new User()
+    user.username = "toto"
+    sessionStorage.setItem("user", JSON.stringify(user))
+
+    if (sessionStorage.getItem("user") == null) {
+      this.route.navigate(['/login'])
+      return
+    }
+
+    this.srv.findAll()
+    
+    this.articles = JSON.parse(sessionStorage.getItem('articles'))
     this.updatePrice()
     this.order = JSON.parse(sessionStorage.getItem('order'))
   }

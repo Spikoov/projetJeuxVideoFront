@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../user';
 
 @Component({
@@ -9,10 +10,16 @@ import { User } from '../user';
 export class HeaderComponent implements OnInit {
 
   user: User
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(sessionStorage.getItem("user"))
   }
 
+  disconnect() {
+    sessionStorage.removeItem("user")
+    this.user = null
+    sessionStorage.removeItem("order")
+    this.route.navigate(['/'])
+  }
 }

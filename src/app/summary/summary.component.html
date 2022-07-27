@@ -12,9 +12,9 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let line of order.lines">
-        <td>{{line.article.nom}}</td>
+        <td> {{line.article.nom}}</td>
         <td>x{{line.quantity}}</td>
-        <td>{{line.price}}</td>
+        <td>{{line.price}} €</td>
       </tr>
     </tbody>
   </table>
@@ -23,5 +23,5 @@
 <hr>
 <div class="mb-3">
   <a class="btn btn-dark" href="/order"><i class="bi bi-caret-left-fill"></i> Retour</a>
-  <a class="btn btn-dark float-end" href="/validation">Commander <i class="bi bi-caret-right-fill"></i></a>
+  <a class="btn btn-dark float-end" href="/order/validation">Commander <i class="bi bi-caret-right-fill"></i></a>
 </div>

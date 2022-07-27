@@ -13,6 +13,7 @@ import { ConnectionComponent } from './connection/connection.component';
 import { SignupComponent } from './signup/signup.component';
 import { CommandeComponent } from './commande/commande.component';
 import { SummaryComponent } from './summary/summary.component';
+import { ValidationComponent } from './validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SummaryComponent } from './summary/summary.component';
     ConnectionComponent,
     SignupComponent,
     CommandeComponent,
-    SummaryComponent
+    SummaryComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,

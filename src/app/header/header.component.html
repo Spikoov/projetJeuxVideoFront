@@ -25,13 +25,13 @@
         <div class="dropdown" *ngIf="user">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-circle"></i> 
-            {{user.nom}}
+            {{user.username}}
           </a>
           <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
             <li><a class="dropdown-item" href="/profile"><i class="bi bi-file-earmark-person"></i> Mon profil</a></li>
             <li><a class="dropdown-item" href="/commandHistory"><i class="bi bi-bag-check"></i> Mes commandes</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-danger" href="/disconnect"><i class="bi bi-box-arrow-left"></i> Déconnexion</a></li>
+            <li><button (click)="disconnect()" class="dropdown-item text-danger"><i class="bi bi-box-arrow-left"></i> Déconnexion</button></li>
           </ul>
         </div>
       </div>
