@@ -16,18 +16,9 @@ export class AdministrationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get("http://localhost:8080/jeuxvideo/users").subscribe(
-reponse=>{
-  this.users = reponse
-
-},
-
-err => {
- 
-  console.log(err);
-}
-
-    );
+    this.srv.findAll((response) => {
+      this.users = response
+    })
   }
 
   makeGod(u : User)
@@ -35,15 +26,21 @@ err => {
     if(u.isAdmin == false || u.isAdmin == null)
     {
       u.isAdmin = true
-      sessionStorage.setItem("user", JSON.stringify(u));
-      this.srv.update(u);
+      this.srv.update(u, () => {
+        this.srv.findAll((response) => {
+          this.users = response
+        })
+      });
       //console.log(u);
     }
     else
     {
       u.isAdmin = false;
-      sessionStorage.setItem("user", JSON.stringify(u));
-      this.srv.update(u);
+      this.srv.update(u, () => {
+        this.srv.findAll((response) => {
+          this.users = response
+        })
+      });
       //console.log(u);
     }
   }

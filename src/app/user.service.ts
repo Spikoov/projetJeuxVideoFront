@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { bindCallback } from 'rxjs';
 import { User } from './user';
 
 @Injectable({
@@ -29,6 +30,20 @@ export class UserService {
         err => {
           console.log("Echec de création")
         });
+  }
+
+  findAll(callback) {
+    this.http.get("http://localhost:8080/jeuxvideo/users").subscribe(
+      reponse=>{
+        callback(reponse)
+      },
+
+      err => {
+      
+        console.log(err);
+      }
+
+    );
   }
 
   create (user : User) : void {
@@ -64,7 +79,8 @@ export class UserService {
                   {
                     console.log(reponse)
                     sessionStorage.setItem("user",JSON.stringify(reponse));
-                    this.route.navigate(["/"])
+                    //this.route.navigate(["/"])
+                    window.location.href = '/'
                   }
               },
 
@@ -97,9 +113,9 @@ export class UserService {
       return user;
   }
 
-  update(user : User)
+  update(user : User, callback)
   {
-    const body = JSON.stringify(this.findByid(user));
+    const body = JSON.stringify(user);
 
     console.log(user)
 
@@ -110,7 +126,8 @@ export class UserService {
       })
     }).subscribe(response => {
 
-      this.findByid(user);
+      //this.findByid(user);
+      callback()
 
     },
 

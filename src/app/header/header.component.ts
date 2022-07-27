@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor(private route: Router) { }
 
   ngOnInit(): void {
+    console.log("coucou");
+    
     this.user = JSON.parse(sessionStorage.getItem("user"))
   }
 

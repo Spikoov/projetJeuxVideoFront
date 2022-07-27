@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'manage/articles', component: ManageArticlesComponent},
   {path: 'manage/articles/new', component: NewArticleComponent},
   {path: 'manage/article/:id', component: UpdateArticleComponent},
-  {path: 'administration', component: AdministrationComponent}
+  {path: 'manage/users', component: AdministrationComponent}
 ];
 
 @NgModule({
