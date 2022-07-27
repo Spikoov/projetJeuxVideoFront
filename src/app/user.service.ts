@@ -48,16 +48,24 @@ export class UserService {
 
   }
 
-  find(user : User) {
+  find(username : String, password : String) {
     
     //let u : User = new User();
-    console.log(user)
-    let url:string="http://localhost:8080/jeuxvideo/users/" + user.username + "/" + user.password;
+    //console.log(user)
+    let url:string="http://localhost:8080/jeuxvideo/users/" + username + "/" + password;
 
     this.http.get<User>(url).subscribe(
       reponse=>{
-                  console.log(reponse)
-                  sessionStorage.setItem("userFind",JSON.stringify(reponse));
+                  if(reponse == null || reponse.username == "" || reponse.password == "")
+                  {
+                    this.route.navigate(["/login"])
+                  }
+                  else
+                  {
+                    console.log(reponse)
+                    sessionStorage.setItem("user",JSON.stringify(reponse));
+                    this.route.navigate(["/"])
+                  }
               },
 
       err=>{

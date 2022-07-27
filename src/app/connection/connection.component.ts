@@ -17,6 +17,6 @@ export class ConnectionComponent implements OnInit {
   }
 
   connect() {
-    //this.srv.find(this.username, this.password)
+    this.srv.find(this.username, this.password)
   }
 }
