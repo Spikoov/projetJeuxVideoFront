@@ -23,19 +23,16 @@ export class CommandeComponent implements OnInit {
   constructor(private srv: ArticleServiceService, private route: Router) { }
 
   ngOnInit(): void {
-    let user = new User()
-    user.username = "toto"
-    sessionStorage.setItem("user", JSON.stringify(user))
-
     if (sessionStorage.getItem("user") == null) {
       this.route.navigate(['/login'])
       return
     }
 
-    this.srv.findAll()
+    this.srv.findAll(() => {
+      this.articles = JSON.parse(sessionStorage.getItem('articles'))
+      this.updatePrice()
+    })
     
-    this.articles = JSON.parse(sessionStorage.getItem('articles'))
-    this.updatePrice()
     this.order = JSON.parse(sessionStorage.getItem('order'))
   }
 

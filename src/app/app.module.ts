@@ -14,6 +14,9 @@ import { SignupComponent } from './signup/signup.component';
 import { CommandeComponent } from './commande/commande.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ValidationComponent } from './validation/validation.component';
+import { ManageArticlesComponent } from './manage-articles/manage-articles.component';
+import { NewArticleComponent } from './new-article/new-article.component';
+import { UpdateArticleComponent } from './update-article/update-article.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { ValidationComponent } from './validation/validation.component';
     SignupComponent,
     CommandeComponent,
     SummaryComponent,
-    ValidationComponent
+    ValidationComponent,
+    ManageArticlesComponent,
+    NewArticleComponent,
+    UpdateArticleComponent
   ],
   imports: [
     BrowserModule,

@@ -31,6 +31,9 @@
             <li><a class="dropdown-item" href="/profile"><i class="bi bi-file-earmark-person"></i> Mon profil</a></li>
             <li><a class="dropdown-item" href="/commandHistory"><i class="bi bi-bag-check"></i> Mes commandes</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li *ngIf="user.isAdmin == true"><a class="dropdown-item" href="/manage/users"><i class="bi bi-tools"></i> Gestion utilisateurs</a></li>
+            <li *ngIf="user.isAdmin == true"><a class="dropdown-item" href="/manage/articles"><i class="bi bi-tools"></i> Gestion articles</a></li>
+            <li><hr class="dropdown-divider"></li>
             <li><button (click)="disconnect()" class="dropdown-item text-danger"><i class="bi bi-box-arrow-left"></i> Déconnexion</button></li>
           </ul>
         </div>

@@ -1,0 +1,32 @@
+<div class="mb-3">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div class="fs-2 mb-3">Nouvel article</div>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingId" placeholder="id" value="{{newId}}" disabled>
+        <label for="floatingId">id</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingName" placeholder="Nom" [(ngModel)]="article.nom">
+        <label for="floatingName">Nom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" id="floatingDesc" placeholder="Description" [(ngModel)]="article.description"></textarea>
+        <label for="floatingDesc">Description</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingPrice" placeholder="Prix" min="0" step="0.01" [(ngModel)]="article.prix">
+        <label for="floatingPrice">Prix</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingImage" placeholder="URL Image" [(ngModel)]="article.image">
+        <label for="floatingImage">URL Image</label>
+      </div>
+      <div class="d-grid gap-2">
+        <button (click)="add()" class="btn btn-dark btn-lg" type="button">Ajouter <i class="bi bi-plus-circle"></i></button>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

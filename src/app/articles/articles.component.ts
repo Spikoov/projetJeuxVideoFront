@@ -13,8 +13,9 @@ export class ArticlesComponent implements OnInit {
   constructor(private srv : ArticleServiceService) { }
 
   ngOnInit(): void {
-    this.srv.findAll()
-    this.articles = JSON.parse(sessionStorage.getItem("articles"))
+    this.srv.findAll(() => {
+      this.articles = JSON.parse(sessionStorage.getItem("articles"))
+    })
   }
 
 }
