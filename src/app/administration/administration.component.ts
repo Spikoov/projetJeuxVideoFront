@@ -65,4 +65,9 @@ export class AdministrationComponent implements OnInit {
     }
   }
 
+  testing() {
+    console.log("coucou");
+    
+  }
+
 }

@@ -13,19 +13,19 @@ import { User } from '../user';
 export class ValidationComponent implements OnInit {
 
   user: User = JSON.parse(sessionStorage.getItem("user"))
+  order: Order = JSON.parse(sessionStorage.getItem("order"))
   constructor(private srv: CommandeService, private route: Router) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("order") == null) {
       this.route.navigate(['/order'])
     }
-    let order: Order = JSON.parse(sessionStorage.getItem("order"))
 
     let commande = new Commande()
     commande.date = new Date()
     commande.idClient = this.user
-    commande.prixTotal = order.price
-    commande.infos = this.generateInfos(order.lines)
+    commande.prixTotal = this.order.price
+    commande.infos = this.generateInfos(this.order.lines)
 
     this.srv.create(commande)
   }

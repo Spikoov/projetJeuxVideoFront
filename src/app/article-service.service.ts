@@ -52,6 +52,8 @@ export class ArticleServiceService {
 
   update(article: Article, callback) {
     const body = JSON.stringify(article)
+    console.log(body);
+    
     this.http.put("http://localhost:8080/jeuxvideo/articles", body, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"

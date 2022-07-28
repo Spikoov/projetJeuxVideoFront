@@ -1,1 +1,46 @@
-<p>COUCOUUUUUUUUUUUUUUUUuuu</p>
+<div>
+  <div class="p-5 mb-4 text-light rounded-3 img d-flex align-items-end" style="background-image: url('{{frontArticle.image}}');">
+      <div>
+        <div class="fs-1">{{frontArticle.nom}}</div>
+        <div>{{frontArticle.description}}</div>
+        <div class="badge text-bg-warning fs-6 mt-3">{{frontArticle.prix}}€</div>
+      </div>      
+  </div>
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6 img-sm">
+        <div id="carouselExampleControls" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-3 h-100">
+            <div *ngFor="let article of carouselArticles">
+              <div class="carousel-item active" *ngIf="article.id==0; else notActive">
+                <img src="{{article.image}}" class="d-block w-100 h-100" alt="{{article.nom}} image">
+                <div class="carousel-caption d-none d-md-block mb-5">
+                  <div class="badge text-bg-warning fs-6 mt-3">{{article.prix}}€</div>
+                </div>
+              </div>
+              <ng-template #notActive>
+                <div class="carousel-item">
+                  <img src="{{article.image}}" class="d-block w-100 h-100" alt="{{article.nom}} image">
+                  <div class="carousel-caption d-none d-md-block mb-5">
+                    <div class="badge text-bg-warning fs-6 mt-3">{{article.prix}}€</div>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    <div class="col-md-6 img-sm">
+      <div class="h-100 p-5 text-light rounded-3 d-flex align-items-end" style="background-image: url('{{otherArticle.image}}'); background-size: 100%">
+        <div class="badge text-bg-warning fs-6 mt-3">{{otherArticle.prix}}€</div>
+      </div>
+    </div>
+  </div>
+</div>

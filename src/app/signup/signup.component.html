@@ -2,6 +2,9 @@
   <div class="col"></div>
   <div class="col">
     <div class="mb-3 fs-1">Inscription</div>
+    <div id="usernameAlreadyExists" class="alert alert-danger" role="alert" hidden>
+      Ce pseudo est déjà utilisé
+    </div>
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="floatingUsername" placeholder="Pseudo" [(ngModel)]="user.username">
       <label for="floatingUsername">Pseudo</label>

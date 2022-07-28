@@ -17,6 +17,12 @@ export class ConnectionComponent implements OnInit {
   }
 
   connect() {
-    this.srv.find(this.username, this.password)
+    document.getElementById('banAlert').hidden = true
+    document.getElementById('unknownUser').hidden = true
+    this.srv.find(this.username, this.password, () => {
+      document.getElementById('banAlert').hidden = false
+    }, () => {
+      document.getElementById('unknownUser').hidden = false
+    })
   }
 }

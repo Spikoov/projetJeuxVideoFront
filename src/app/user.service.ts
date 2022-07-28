@@ -23,8 +23,8 @@ export class UserService {
 
         console.log("Tu es inscrit, félicitations !");
         sessionStorage.setItem("user", JSON.stringify(user))
-        this.route.navigate(["/"])
-       
+        //this.route.navigate(["/"])
+        window.location.href = '/'
       },
 
         err => {
@@ -46,13 +46,14 @@ export class UserService {
     );
   }
 
-  create (user : User) : void {
+  create (user : User, usernameAlreadyExists) : void {
 
     let url:string="http://localhost:8080/jeuxvideo/users/user/" + user.username;
 
     this.http.get<User>(url).subscribe(
       reponse=>{
                   console.log("Utilisateur déjà inscrit")
+                  usernameAlreadyExists()
               },
 
       err=>{
@@ -63,7 +64,7 @@ export class UserService {
 
   }
 
-  find(username : String, password : String) {
+  find(username : String, password : String, banCallback, unknownUser) {
     
     //let u : User = new User();
     //console.log(user)
@@ -73,19 +74,25 @@ export class UserService {
       reponse=>{
                   if(reponse == null || reponse.username == "" || reponse.password == "")
                   {
-                    this.route.navigate(["/login"])
+                    //this.route.navigate(["/login"])
+                    unknownUser()
+                    
                   }
                   else
                   {
-                    console.log(reponse)
-                    sessionStorage.setItem("user",JSON.stringify(reponse));
-                    //this.route.navigate(["/"])
-                    window.location.href = '/'
+                    if (!reponse.isBanned) {
+                      sessionStorage.setItem("user",JSON.stringify(reponse));
+                      //this.route.navigate(["/"])
+                      window.location.href = '/'
+                    } else {
+                      banCallback()
+                    }
                   }
               },
 
       err=>{
               console.log("Utilisateur inconnu");
+              
             }
 
                 );

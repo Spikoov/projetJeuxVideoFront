@@ -1,23 +1,41 @@
-<p>administration works!</p>
-
-<table>
-    <tr *ngFor="let u of users">
-        <td>
-            {{u.username}}
-        </td>
-        <td>
-            {{u.prenom}}
-        </td>
-        <td>
-            {{u.nom}}
-        </td>
-
-        <!--<td><button (click) = "makeGod(u)">God mode</button></td>-->
-        <td *ngIf="u.isAdmin; else notAdmin"><button (click) = "makeGod(u)">Désactiver le God Mode</button></td>
-        <ng-template #notAdmin><button (click) = "makeGod(u)">Activer le God Mode</button></ng-template>
-
-        <td *ngIf="u.isBanned; else notBanned"><button (click) = "makeDog(u)">Pardonner l'utilisateur</button></td>
-        <ng-template #notBanned><button (click) = "makeDog(u)">Utiliser le Ban Hammer</button></ng-template>
-
-    </tr>
-</table>
+<div>
+    <div class="mb-3">
+        <span class="fs-2">Gestion des utilisateurs</span>
+    </div>
+    <table class="table mb-3 table-hover">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th></th>
+                <th>Admin</th>
+                <th>Bannissement</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let user of users">
+                <td class="fw-bold">{{user.username}}</td>
+                <td>{{user.nom}}</td>
+                <td>{{user.prenom}}</td>
+                <td class="col-3"></td>
+                <td>
+                    <button *ngIf="user.isAdmin; else notAdmin" (click)="makeGod(user)" type="button" class="btn btn-primary">
+                        Désactiver God mode <i class="bi bi-person-x"></i>
+                    </button>
+                    <ng-template #notAdmin>
+                        <button (click)="makeGod(user)" type="button" class="btn btn-outline-primary">Activer God mode <i class="bi bi-person-check-fill"></i></button>
+                    </ng-template>
+                </td>
+                <td>
+                    <button *ngIf="user.isBanned; else notBanned" type="button" class="btn btn-outline-danger" (click)="makeDog(user)">
+                        Pardonner l'utilisateur <i class="bi bi-person-heart"></i>
+                    </button>
+                    <ng-template #notBanned>
+                        <button (click)="makeDog(user)" class="btn btn-danger">Utiliser le Ban Hammer <i class="bi bi-x-octagon"></i></button>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -22,8 +22,11 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
+    document.getElementById('usernameAlreadyExists').hidden = true
     this.user.adresse = this.adress + " " + this.zip + " " + this.city
-    this.srv.create(this.user)
+    this.srv.create(this.user, () => {
+      document.getElementById('usernameAlreadyExists').hidden = false
+    })
   }
 
 }

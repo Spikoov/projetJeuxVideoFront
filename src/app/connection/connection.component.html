@@ -2,6 +2,12 @@
   <div class="col"></div>
   <div class="col">
     <div class="mb-3 fs-1">Connexion</div>
+    <div id="banAlert" class="alert alert-danger" role="alert" hidden>
+      Votre compte est banni !
+    </div>
+    <div id="unknownUser" class="alert alert-warning" role="alert" hidden>
+      Pseudo ou mot de passe incorrect
+    </div>
     <div class="form-floating mb-3 col">
       <input type="text" class="form-control" id="floatingInput" placeholder="Pseudo" [(ngModel)]="username">
       <label for="floatingInput">Pseudo</label>
