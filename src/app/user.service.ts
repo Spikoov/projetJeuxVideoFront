@@ -102,22 +102,21 @@ export class UserService {
   }
 
 
-  findByid(user : User) : User {
+  findByid(username : string, callback) {
     
-    let url:string="http://localhost:8080/jeuxvideo/users/user/" + user.username;
+    let url:string="http://localhost:8080/jeuxvideo/users/user/" + username;
 
     this.http.get<User>(url).subscribe(
       reponse=>{
                     console.log(reponse)
+                    callback(reponse)
               },
 
       err=>{
               console.log("Utilisateur inconnu");
             }
 
-                );  
-                
-      return user;
+                );
   }
 
   update(user : User, callback)

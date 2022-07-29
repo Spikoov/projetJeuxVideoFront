@@ -28,7 +28,7 @@
             {{user.username}}
           </a>
           <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-            <li><a class="dropdown-item" href="/profile"><i class="bi bi-file-earmark-person"></i> Mon profil</a></li>
+            <li><a class="dropdown-item" href="/profile/{{user.username}}"><i class="bi bi-file-earmark-person"></i> Mon profil</a></li>
             <li><a class="dropdown-item" href="/commandHistory"><i class="bi bi-bag-check"></i> Mes commandes</a></li>
             <li><hr class="dropdown-divider"></li>
             <li *ngIf="user.isAdmin == true"><a class="dropdown-item" href="/manage/users"><i class="bi bi-tools"></i> Gestion utilisateurs</a></li>

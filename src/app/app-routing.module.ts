@@ -7,6 +7,7 @@ import { ConnectionComponent } from './connection/connection.component';
 import { HomeComponent } from './home/home.component';
 import { ManageArticlesComponent } from './manage-articles/manage-articles.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { SummaryComponent } from './summary/summary.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'manage/articles', component: ManageArticlesComponent},
   {path: 'manage/articles/new', component: NewArticleComponent},
   {path: 'manage/article/:id', component: UpdateArticleComponent},
-  {path: 'manage/users', component: AdministrationComponent}
+  {path: 'manage/users', component: AdministrationComponent},
+  {path: 'profile/:username', component: ProfileComponent}
 ];
 
 @NgModule({

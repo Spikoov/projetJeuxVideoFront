@@ -18,6 +18,7 @@ import { ManageArticlesComponent } from './manage-articles/manage-articles.compo
 import { NewArticleComponent } from './new-article/new-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { AdministrationComponent } from './administration/administration.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdministrationComponent } from './administration/administration.compone
     ManageArticlesComponent,
     NewArticleComponent,
     UpdateArticleComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
